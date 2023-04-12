@@ -7,6 +7,8 @@ import {
   ScrollView,
   Image,
   Button,
+  TextInput,
+  TouchableOpacity,
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
@@ -51,22 +53,44 @@ export default function App() {
           color="black"
         />
       </View>
-      <View style={styles.content}>
-        <FlatList
-          numColumns={2}
-          data={data}
-          contentContainerStyle={styles.flatListContainer}
-          renderItem={({ item, index }) => (
-            <View style={styles.box}>
-              <View style={styles.figura}>
-                <Image style={styles.image} source={item.image} />
-                <Text style={styles.texto}>{item.text}</Text>
+
+      <ScrollView>
+        <View style={styles.loginContainer}>
+          <Text style={styles.loginTitle}>Faça seu Login</Text>
+          <View style={styles.formContainer}>
+            <TextInput
+              style={styles.loginInput}
+              placeholder="Nome de usuário"
+              placeholderTextColor="#777"
+            />
+            <TextInput
+              style={styles.loginInput}
+              placeholder="Senha"
+              secureTextEntry={true}
+              placeholderTextColor="#777"
+            />
+            <TouchableOpacity style={styles.loginButton}>
+              <Text style={styles.loginButtonText}>Login</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View style={styles.content}>
+          <FlatList
+            numColumns={2}
+            data={data}
+            contentContainerStyle={styles.flatListContainer}
+            renderItem={({ item, index }) => (
+              <View style={styles.box}>
+                <View style={styles.figura}>
+                  <Image style={styles.image} source={item.image} />
+                  <Text style={styles.texto}>{item.text}</Text>
+                </View>
               </View>
-            </View>
-          )}
-          keyExtractor={(item) => item.key}
-        />
-      </View>
+            )}
+            keyExtractor={(item) => item.key}
+          />
+        </View>
+      </ScrollView>
 
       <View style={styles.footer}>
         <AntDesign name="search1" size={24} color="black" />
@@ -102,17 +126,16 @@ const styles = StyleSheet.create({
     marginHorizontal: 8,
   },
   flatList: {
-    flex: 1, 
+    flex: 1,
   },
   flatListContainer: {
-    justifyContent: 'space-between', 
+    justifyContent: "space-between",
   },
   box: {
     display: "flex",
     padding: 5,
     alignItems: "center",
-    width: '50%',
-    
+    width: "50%",
   },
   image: {
     padding: 10,
@@ -127,7 +150,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    marginTop: 30
+    marginTop: 30,
   },
   design: {
     display: "flex",
@@ -139,6 +162,55 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     marginTop: 10,
     textAlign: "center",
+  },
+  loginContainer: {
+    backgroundColor: "#ffa500", // cor laranja
+    margin: 20, // margem de 20
+    padding: 20, // preenchimento de 20
+    borderRadius: 10, // borda arredondada de 10
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  loginTitle: {
+    fontSize: 24, // tamanho da fonte de 24
+    fontWeight: "bold",
+    color: "white", // cor do texto branca
+    marginBottom: 20, // margem inferior de 20
+    textAlign: "center",
+  },
+
+  formContainer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  loginInput: {
+    height: 40,
+    width: 250,
+    marginBottom: 10, // margem inferior de 10
+    padding: 10, // preenchimento de 10
+    borderRadius: 5, // borda arredondada de 5
+    borderWidth: 1, // borda de 1 sólida com cor cinza
+    borderColor: "#777",
+    fontSize: 16, // tamanho da fonte de 16
+  },
+
+  loginButton: {
+    backgroundColor: "white", // cor do fundo branca
+    paddingVertical: 10, // preenchimento de 10 na vertical
+    paddingHorizontal: 20, // preenchimento de 20 na horizontal
+    borderRadius: 5, // borda arredondada de 5
+    marginTop: 10, // margem superior de 10
+  },
+
+  loginButtonText: {
+    color: "#ffa500", // cor do texto laranja
+    fontSize: 16, // tamanho da fonte de 16
+    fontWeight: "bold",
   },
   footer: {
     height: 100,
