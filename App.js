@@ -44,7 +44,7 @@ export default function App() {
     <View style={styles.container}>
       <View style={styles.head}>
         <Image
-          source={require("./images/logoBurline.png")}
+          source={require("./images/logo.png")}
           style={styles.logo}
           resizeMode="contain"
         />
@@ -55,6 +55,7 @@ export default function App() {
           color="black"
         />
       </View>
+
       <ScrollView>
         <View style={styles.content}>
           <FlatList
@@ -72,30 +73,31 @@ export default function App() {
             keyExtractor={(item) => item.key}
           />
         </View>
-        <View style={styles.loginContainer}>
+         <View style={styles.loginContainer}>
           <Text style={styles.loginTitle}>Faça seu Login</Text>
           <View style={styles.formContainer}>
+            
             <TextInput
               style={styles.loginInput}
               placeholder="Nome de usuário"
               placeholderTextColor="#777"
             />
-
+           
             <TextInput
               style={styles.loginInput}
               placeholder="Senha"
               secureTextEntry={true}
               placeholderTextColor="#777"
             />
-
+            
             <View style={styles.loginButtonText}>
-              <TouchableOpacity>
-                <Button
-                  title="login"
-                  onPress={() => Alert.alert("Você realizou o seu cadastro!")}
-                  color={"#f5565b"}
-                />
-              </TouchableOpacity>
+            <TouchableOpacity> 
+            <Button 
+            title="login"
+            onPress={() => Alert.alert('Você realizou o seu cadastro!')}
+            color={"#f5565b"}
+            />
+            </TouchableOpacity>
             </View>
           </View>
         </View>
@@ -126,6 +128,7 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     backgroundColor: "#d7e8d5",
+    
   },
   logo: {
     width: 220,
@@ -173,23 +176,23 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   loginContainer: {
-    backgroundColor: "#eb9a7f",
-    margin: 20,
-    padding: 20,
-    borderRadius: 10,
+    backgroundColor: "#eb9a7f", 
+    margin: 20, 
+    padding: 20, 
+    borderRadius: 10, 
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
   },
-
+ 
   loginTitle: {
-    fontSize: 24,
+    fontSize: 24, 
     fontWeight: "bold",
-    color: "white",
-    marginBottom: 20,
+    color: "white", 
+    marginBottom: 20, 
     textAlign: "center",
   },
-
+ 
   formContainer: {
     display: "flex",
     flexDirection: "column",
@@ -200,20 +203,21 @@ const styles = StyleSheet.create({
   loginInput: {
     height: 40,
     width: 250,
-    marginBottom: 10,
-    padding: 10,
-    borderRadius: 5,
-    borderWidth: 1,
+    marginBottom: 10, 
+    padding: 10, 
+    borderRadius: 5, 
+    borderWidth: 1, 
     borderColor: "#777",
-    fontSize: 16,
+    fontSize: 16, 
   },
 
   loginButtonText: {
-    height: 60,
-    width: 60,
-  },
-
-  footer: {
+     
+    height:60,
+    width:60,
+     },
+  
+     footer: {
     height: 60,
     backgroundColor: "#fff",
     alignItems: "center",
