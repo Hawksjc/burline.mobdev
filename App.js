@@ -74,7 +74,7 @@ export default function App() {
           />
         </View>
          <View style={styles.loginContainer}>
-          <Text style={styles.loginTitle}>Faça seu Login</Text>
+          <Text style={styles.loginTitle}> Faça seu Login </Text>
           <View style={styles.formContainer}>
             
             <TextInput
