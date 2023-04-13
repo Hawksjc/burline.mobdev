@@ -1,3 +1,4 @@
+// Maria Clara-01565971 e Júlio César de Oliveira Lima-0156654//
 import React, { useState } from "react";
 import {
   StyleSheet,
@@ -9,6 +10,7 @@ import {
   Button,
   TextInput,
   TouchableOpacity,
+  Alert,
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
@@ -53,27 +55,7 @@ export default function App() {
           color="black"
         />
       </View>
-
       <ScrollView>
-        <View style={styles.loginContainer}>
-          <Text style={styles.loginTitle}>Faça seu Login</Text>
-          <View style={styles.formContainer}>
-            <TextInput
-              style={styles.loginInput}
-              placeholder="Nome de usuário"
-              placeholderTextColor="#777"
-            />
-            <TextInput
-              style={styles.loginInput}
-              placeholder="Senha"
-              secureTextEntry={true}
-              placeholderTextColor="#777"
-            />
-            <TouchableOpacity style={styles.loginButton}>
-              <Text style={styles.loginButtonText}>Login</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
         <View style={styles.content}>
           <FlatList
             numColumns={2}
@@ -90,6 +72,33 @@ export default function App() {
             keyExtractor={(item) => item.key}
           />
         </View>
+        <View style={styles.loginContainer}>
+          <Text style={styles.loginTitle}>Faça seu Login</Text>
+          <View style={styles.formContainer}>
+            <TextInput
+              style={styles.loginInput}
+              placeholder="Nome de usuário"
+              placeholderTextColor="#777"
+            />
+
+            <TextInput
+              style={styles.loginInput}
+              placeholder="Senha"
+              secureTextEntry={true}
+              placeholderTextColor="#777"
+            />
+
+            <View style={styles.loginButtonText}>
+              <TouchableOpacity>
+                <Button
+                  title="login"
+                  onPress={() => Alert.alert("Você realizou o seu cadastro!")}
+                  color={"#f5565b"}
+                />
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
       </ScrollView>
 
       <View style={styles.footer}>
@@ -103,7 +112,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#D8F2FA",
+    backgroundColor: "#d7e8d5",
   },
   head: {
     backgroundColor: "white",
@@ -116,11 +125,11 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    backgroundColor: "#d0ecea",
+    backgroundColor: "#d7e8d5",
   },
   logo: {
-    width: 150,
-    height: 80,
+    width: 220,
+    height: 100,
   },
   icon: {
     marginHorizontal: 8,
@@ -139,8 +148,8 @@ const styles = StyleSheet.create({
   },
   image: {
     padding: 10,
-    width: 100,
-    height: 100,
+    width: 110,
+    height: 110,
   },
   texto: {
     fontSize: 15,
@@ -164,20 +173,20 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   loginContainer: {
-    backgroundColor: "#ffa500", // cor laranja
-    margin: 20, // margem de 20
-    padding: 20, // preenchimento de 20
-    borderRadius: 10, // borda arredondada de 10
+    backgroundColor: "#eb9a7f",
+    margin: 20,
+    padding: 20,
+    borderRadius: 10,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
   },
 
   loginTitle: {
-    fontSize: 24, // tamanho da fonte de 24
+    fontSize: 24,
     fontWeight: "bold",
-    color: "white", // cor do texto branca
-    marginBottom: 20, // margem inferior de 20
+    color: "white",
+    marginBottom: 20,
     textAlign: "center",
   },
 
@@ -191,29 +200,21 @@ const styles = StyleSheet.create({
   loginInput: {
     height: 40,
     width: 250,
-    marginBottom: 10, // margem inferior de 10
-    padding: 10, // preenchimento de 10
-    borderRadius: 5, // borda arredondada de 5
-    borderWidth: 1, // borda de 1 sólida com cor cinza
+    marginBottom: 10,
+    padding: 10,
+    borderRadius: 5,
+    borderWidth: 1,
     borderColor: "#777",
-    fontSize: 16, // tamanho da fonte de 16
-  },
-
-  loginButton: {
-    backgroundColor: "white", // cor do fundo branca
-    paddingVertical: 10, // preenchimento de 10 na vertical
-    paddingHorizontal: 20, // preenchimento de 20 na horizontal
-    borderRadius: 5, // borda arredondada de 5
-    marginTop: 10, // margem superior de 10
+    fontSize: 16,
   },
 
   loginButtonText: {
-    color: "#ffa500", // cor do texto laranja
-    fontSize: 16, // tamanho da fonte de 16
-    fontWeight: "bold",
+    height: 60,
+    width: 60,
   },
+
   footer: {
-    height: 100,
+    height: 60,
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
