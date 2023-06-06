@@ -31,22 +31,26 @@ export function Favorito() {
     setData1((prevData1) => {
       return prevData1.filter((texto) => texto.key != key);
     });
-
-    return (
-      <View style={StyleSheet.container}>
-        <View style={StyleSheet.conteudo}>
-          <View>
-            <FlatList
-              data={data1}
-              renderItem={({ item }) => (
-                <ToDoList props={item} funcao={FavoritarItem} />
-              )}
-            />
-          </View>
-        </View>
-      </View>
-    );
   };
+  
+  return (
+    <View style={styles.container}>
+      <FlatList
+        data={data1}
+        renderItem={({ item }) => (
+          <ToDoList
+            name={item.name}
+            role={item.role}
+            image={item.image}
+            props={item}
+            funcao={FavoritarItem}
+          />
+        )}
+        keyExtractor={(item) => item.key.toString()}
+        style={styles.container}
+      />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
