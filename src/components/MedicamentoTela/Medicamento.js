@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View, TextInput } from "react-native";
 import { EmployeeList } from "./EmployeeList";
 import { AntDesign } from "@expo/vector-icons";
-import { Cabecalho } from "../Cabecalho";
 
 export function Medicamento() {
   const [data, setData] = useState([
@@ -192,7 +191,7 @@ export function Medicamento() {
         <AntDesign name="search1" size={24} color="black" />
         <TextInput style={styles.footerText} placeholder="Pesquisar" />
       </View>
-      <EmployeeList data={data} />
+      <EmployeeList data={data}/>
     </View>
   );
 }

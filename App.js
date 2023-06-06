@@ -8,10 +8,10 @@ import {
 import { Cabecalho } from "./src/components/Cabecalho";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
-import { PrincipalScreen } from "./src/components/PrincipalTela/Principal";
+import { PrincipalScreen } from './src/components/PrincipalTela/PrincipalScreen'
 import { Cadastro } from "./src/components/CadastroTela/Cadastro";
 import { Medicamento } from "./src/components/MedicamentoTela/Medicamento";
-import { Rodape } from "./src/components/Rodape/index";
+import { Favorito } from "./src/components/FavoritoTela/Favorito";
 
 const Stack = createNativeStackNavigator();
 
@@ -37,6 +37,11 @@ export default function App() {
         <Stack.Screen
           name="Medicamento"
           component={Medicamento}
+          options={{ gestureEnabled: false }}
+        />
+        <Stack.Screen
+          name="Favorito"
+          component={Favorito}
           options={{ gestureEnabled: false }}
         />
       </Stack.Navigator>

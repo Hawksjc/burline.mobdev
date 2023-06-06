@@ -11,8 +11,8 @@ import {
   Alert,
   TextInput,
 } from "react-native";
-import { Cabecalho } from "../Cabecalho";
-import { Rodape } from "../Rodape"
+import { Cabecalho } from "../Cabecalho/index";
+import { Rodape } from "../Rodape/index"
 
 export function PrincipalScreen({ navigation }) {
   const [data, setData] = useState([
@@ -37,9 +37,9 @@ export function PrincipalScreen({ navigation }) {
     if (itemKey === "1") {
       navigation.navigate("Medicamento");
     } else if (itemKey === "2") {
-      Alert.alert("Olá!");
+      navigation.navigate("Favorito");
     } else if (itemKey === "3") {
-      Alert.alert("Olá!");
+      navigation.navigate("Favorito");
     }
   };
 
