@@ -6,19 +6,46 @@ import {
   View,
   FlatList,
   ScrollView,
-  Image
+  Image,
+  TouchableOpacity,
+  Alert
 } from "react-native";
+import { Cabecalho } from "../Cabecalho";
 import { AntDesign } from "@expo/vector-icons";
 
-export function Principal() {
+export function PrincipalScreen({ navigation }) {
   const [data, setData] = useState([
-    { key: "1", image: require("./assets/medi.png"), text: "Medicamentos", },
-    { key: "2", image: require("./assets/farmacia.png"), text: "Farmácia", },
-    { key: "3", image: require("./assets/estrela.png"), text: "Favoritos", },
+    {
+      key: "1",
+      image: require("../../../assets/medi.png"),
+      text: "Medicamentos",
+    },
+    {
+      key: "2",
+      image: require("../../../assets/farmacia.png"),
+      text: "Farmácia",
+    },
+    {
+      key: "3",
+      image: require("../../../assets/estrela.png"),
+      text: "Favoritos",
+    },
   ]);
+
+  const Clicavel = (itemKey) => {
+    if (itemKey === "1") {
+      navigation.navigate("Medicamento");
+    } else if (itemKey === "2") {
+      Alert.alert("Olá!")
+
+    } else if (itemKey === "3") {
+      Alert.alert("Olá!")
+    }
+  };
 
   return (
     <View style={styles.container}>
+      <Cabecalho />
       <ScrollView>
         <View style={styles.content}>
           <FlatList
@@ -28,8 +55,10 @@ export function Principal() {
             renderItem={({ item }) => (
               <View style={styles.box}>
                 <View style={styles.figura}>
-                  <Image style={styles.image} source={item.image} />
-                  <Text style={styles.texto}>{item.text}</Text>
+                  <TouchableOpacity onPress={() => Clicavel(item.key)}>
+                    <Image style={styles.image} source={item.image} />
+                    <Text style={styles.texto}>{item.text}</Text>
+                  </TouchableOpacity>
                 </View>
               </View>
             )}
@@ -54,7 +83,6 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     backgroundColor: "#d7e8d5",
-    
   },
   flatList: {
     flex: 1,
@@ -95,23 +123,23 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   loginContainer: {
-    backgroundColor: "#eb9a7f", 
-    margin: 20, 
-    padding: 20, 
-    borderRadius: 10, 
+    backgroundColor: "#eb9a7f",
+    margin: 20,
+    padding: 20,
+    borderRadius: 10,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
   },
- 
+
   loginTitle: {
-    fontSize: 24, 
+    fontSize: 24,
     fontWeight: "bold",
-    color: "white", 
-    marginBottom: 20, 
+    color: "white",
+    marginBottom: 20,
     textAlign: "center",
   },
- 
+
   formContainer: {
     display: "flex",
     flexDirection: "column",
@@ -122,21 +150,20 @@ const styles = StyleSheet.create({
   loginInput: {
     height: 40,
     width: 250,
-    marginBottom: 10, 
-    padding: 10, 
-    borderRadius: 5, 
-    borderWidth: 1, 
+    marginBottom: 10,
+    padding: 10,
+    borderRadius: 5,
+    borderWidth: 1,
     borderColor: "#777",
-    fontSize: 16, 
+    fontSize: 16,
   },
 
   loginButtonText: {
-     
-    height:60,
-    width:60,
-     },
-  
-     footer: {
+    height: 60,
+    width: 60,
+  },
+
+  footer: {
     height: 60,
     backgroundColor: "#fff",
     alignItems: "center",
