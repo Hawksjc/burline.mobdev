@@ -8,10 +8,11 @@ import {
   ScrollView,
   Image,
   TouchableOpacity,
-  Alert
+  Alert,
+  TextInput,
 } from "react-native";
 import { Cabecalho } from "../Cabecalho";
-import { AntDesign } from "@expo/vector-icons";
+import { Rodape } from "../Rodape"
 
 export function PrincipalScreen({ navigation }) {
   const [data, setData] = useState([
@@ -36,41 +37,34 @@ export function PrincipalScreen({ navigation }) {
     if (itemKey === "1") {
       navigation.navigate("Medicamento");
     } else if (itemKey === "2") {
-      Alert.alert("Olá!")
-
+      Alert.alert("Olá!");
     } else if (itemKey === "3") {
-      Alert.alert("Olá!")
+      Alert.alert("Olá!");
     }
   };
 
   return (
     <View style={styles.container}>
-      <Cabecalho />
-      <ScrollView>
-        <View style={styles.content}>
-          <FlatList
-            numColumns={2}
-            data={data}
-            contentContainerStyle={styles.flatListContainer}
-            renderItem={({ item }) => (
-              <View style={styles.box}>
-                <View style={styles.figura}>
-                  <TouchableOpacity onPress={() => Clicavel(item.key)}>
-                    <Image style={styles.image} source={item.image} />
-                    <Text style={styles.texto}>{item.text}</Text>
-                  </TouchableOpacity>
-                </View>
+      <Cabecalho/>
+      <View style={styles.content}>
+        <FlatList
+          numColumns={2}
+          data={data}
+          contentContainerStyle={styles.flatListContainer}
+          renderItem={({ item }) => (
+            <View style={styles.box}>
+              <View style={styles.figura}>
+                <TouchableOpacity onPress={() => Clicavel(item.key)}>
+                  <Image style={styles.image} source={item.image} />
+                  <Text style={styles.texto}>{item.text}</Text>
+                </TouchableOpacity>
               </View>
-            )}
-            keyExtractor={(item) => item.key}
-          />
-        </View>
-      </ScrollView>
-
-      <View style={styles.footer}>
-        <AntDesign name="search1" size={24} color="black" />
-        <Text style={styles.footerText}>Search</Text>
+            </View>
+          )}
+          keyExtractor={(item) => item.key}
+        />
       </View>
+      <Rodape navigation={navigation}/>
     </View>
   );
 }
@@ -83,9 +77,6 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     backgroundColor: "#d7e8d5",
-  },
-  flatList: {
-    flex: 1,
   },
   flatListContainer: {
     justifyContent: "space-between",
@@ -161,21 +152,5 @@ const styles = StyleSheet.create({
   loginButtonText: {
     height: 60,
     width: 60,
-  },
-
-  footer: {
-    height: 60,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-    borderTopWidth: 1,
-    borderTopColor: "#ddd",
-    flexDirection: "row",
-    paddingBottom: 15,
-  },
-  footerText: {
-    color: "#999",
-    marginLeft: 8,
-    fontSize: 16,
   },
 });

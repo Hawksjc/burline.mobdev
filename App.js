@@ -3,14 +3,15 @@ import {
   Text,
   View,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
 import { Cabecalho } from "./src/components/Cabecalho";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
-import { PrincipalScreen } from './src/components/PrincipalTela/Principal'
-import { Cadastro } from './src/components/CadastroTela/Cadastro'
+import { PrincipalScreen } from "./src/components/PrincipalTela/Principal";
+import { Cadastro } from "./src/components/CadastroTela/Cadastro";
 import { Medicamento } from "./src/components/MedicamentoTela/Medicamento";
+import { Rodape } from "./src/components/Rodape/index";
 
 const Stack = createNativeStackNavigator();
 
@@ -21,18 +22,29 @@ export default function App() {
         <Stack.Screen
           name="Login"
           component={LoginScreen}
-          options={{ headerShown: false }}
+          options={{ headerShown: false, gestureEnabled: true }}
         />
-        <Stack.Screen name="Principal" component={PrincipalScreen} options={{ headerShown: false }}/>
-        <Stack.Screen name="Cadastro" component={Cadastro} options={{ headerShown: false }}/>
-        <Stack.Screen name="Medicamento" component={Medicamento} options={{ headerShown: false }}/>
+        <Stack.Screen
+          name="Principal"
+          component={PrincipalScreen}
+          options={{ headerShown: false, gestureEnabled: true }}
+        />
+        <Stack.Screen
+          name="Cadastro"
+          component={Cadastro}
+          options={{ headerShown: false, gestureEnabled: true }}
+        />
+        <Stack.Screen
+          name="Medicamento"
+          component={Medicamento}
+          options={{ gestureEnabled: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
 function LoginScreen({ navigation }) {
-
   return (
     <View style={styles.container}>
       <Cabecalho />
@@ -111,5 +123,5 @@ const styles = StyleSheet.create({
   loginButtonText: {
     height: 60,
     width: 180,
-  }
+  },
 });
