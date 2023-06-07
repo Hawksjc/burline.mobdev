@@ -2,6 +2,7 @@ import { StyleSheet, FlatList, Image, View } from "react-native";
 import { EmployeeListItem } from "../EmployeeListItem";
 
 export function EmployeeList(props) {
+  
   return (
     <FlatList
       data={props.data}

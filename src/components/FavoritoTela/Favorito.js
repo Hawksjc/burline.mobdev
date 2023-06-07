@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, TextInput, FlatList } from "react-native";
-import { ToDoList } from "../ToDoList/Todolist";
+import { ToDoList } from "./ToDoList/Todolist";
 
 export function Favorito() {
   const [data1, setData1] = useState([
@@ -27,7 +27,7 @@ export function Favorito() {
     },
   ]);
 
-  const FavoritarItem = (key) => {
+  const DesfavoritarItem = (key) => {
     setData1((prevData1) => {
       return prevData1.filter((texto) => texto.key != key);
     });
@@ -42,8 +42,7 @@ export function Favorito() {
             name={item.name}
             role={item.role}
             image={item.image}
-            props={item}
-            funcao={FavoritarItem}
+            funcao={DesfavoritarItem}
           />
         )}
         keyExtractor={(item) => item.key.toString()}

@@ -191,7 +191,7 @@ export function Medicamento() {
         <AntDesign name="search1" size={24} color="black" />
         <TextInput style={styles.footerText} placeholder="Pesquisar" />
       </View>
-      <EmployeeList data={data}/>
+      <EmployeeList data={data} />
     </View>
   );
 }
